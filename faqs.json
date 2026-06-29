@@ -1,0 +1,72 @@
+[
+  {
+    "id": "what_is_antigravity",
+    "category": "General",
+    "question": "What is Antigravity IDE and who built it?",
+    "answer": "Antigravity IDE is a powerful agentic AI coding workspace designed by the Google DeepMind team. It is built for advanced agentic coding, allowing developers to pair program with autonomous AI agents that can read/write files, execute terminal commands, run tests, browse the web, and build web applications.",
+    "tags": ["antigravity", "about", "deepmind", "google", "creator"]
+  },
+  {
+    "id": "features_supported",
+    "category": "General",
+    "question": "What are the core features of Antigravity IDE?",
+    "answer": "The core features of Antigravity include autonomous pair programming, advanced task planning and execution, multi-agent orchestrations (subagents), integrated web browsing/testing, automated image generation, background task execution, and customizable rules and skills.",
+    "tags": ["features", "capabilities", "what can it do", "agent"]
+  },
+  {
+    "id": "what_is_planning_mode",
+    "category": "Workflows",
+    "question": "What is Planning Mode in the agent's workflow?",
+    "answer": "Planning Mode is a structured approach where the agent researches a complex task, drafts an 'implementation_plan.md' detailing proposed changes and verification steps, obtains explicit user approval, tracks tasks in 'task.md', and generates a final 'walkthrough.md' upon completion.",
+    "tags": ["planning", "plan", "workflow", "implementation plan", "approval"]
+  },
+  {
+    "id": "slash_commands",
+    "category": "Commands",
+    "question": "What slash commands are available in the chat UI?",
+    "answer": "The available slash commands are:\n- `/goal`: Run long-running tasks thoroughly (e.g. overnight execution).\n- `/schedule`: Set up recurring cron schedules or one-off timers.\n- `/grill-me`: Start an interactive interview to align on design decisions and resolve ambiguities.\n- `/learn`: Save workspace lessons and patterns for future reference.",
+    "tags": ["slash", "commands", "goal", "schedule", "grill-me", "learn"]
+  },
+  {
+    "id": "write_custom_rules",
+    "category": "Customization",
+    "question": "How do I write custom rules for the agent?",
+    "answer": "You can add custom rules by editing or appending to the `AGENTS.md` file. There are two scopes:\n1. **Global Rules**: In the global customizations root (`C:\\Users\\<user>\\.gemini\\config\\AGENTS.md`).\n2. **Workspace-Scoped Rules**: In the workspace customizations root (`.agents/AGENTS.md` relative to the workspace root).",
+    "tags": ["rules", "customization", "agents.md", "guidelines", "override"]
+  },
+  {
+    "id": "create_custom_skills",
+    "category": "Customization",
+    "question": "How can I create or structure a custom Skill?",
+    "answer": "Custom skills are directories placed under `skills/<skill_name>/` in a customization root. A skill must contain a `SKILL.md` file (which uses YAML frontmatter with a `name` and `description` to enable trigger matching). You can also include subdirectories like `scripts/`, `examples/`, `resources/`, or `references/` for extra context.",
+    "tags": ["skills", "custom", "skill.md", "yaml", "structure", "frontmatter"]
+  },
+  {
+    "id": "resolve_permission_errors",
+    "category": "Troubleshooting",
+    "question": "How do I handle permission denied errors or request file access?",
+    "answer": "If a task encounters a permission error, the agent uses the `ask_permission` tool to request access from the user. You can grant specific actions like `read_file`, `write_file`, or command execution prefix scopes. Alternatively, you can run the commands directly in your terminal if you prefer.",
+    "tags": ["permission", "access", "denied", "error", "read_file", "write_file"]
+  },
+  {
+    "id": "background_tasks",
+    "category": "Workflows",
+    "question": "How do background tasks work and how do I manage them?",
+    "answer": "When you run a command asynchronously, it runs in the background. You can manage these tasks using the `manage_task` tool with specific actions: `list` (view all tasks), `status` (check status/logs), `send_input` (provide interactive input), or `kill` (terminate the task). The system notifies the agent when background tasks finish.",
+    "tags": ["background", "tasks", "asynchronous", "manage_task", "status", "kill"]
+  },
+  {
+    "id": "web_development_aesthetics",
+    "category": "Web Dev",
+    "question": "What design guidelines does Antigravity follow for web applications?",
+    "answer": "Antigravity prioritizes high-end visual aesthetics: dark-themed UI components, glassmorphism (translucent panels, blur backdrops), vibrant custom color schemes, smooth micro-animations, standard typography (e.g. Outfit, Google Fonts), and fully interactive components rather than placeholders.",
+    "tags": ["design", "aesthetics", "web", "css", "styling", "glassmorphism", "premium"]
+  },
+  {
+    "id": "what_is_workflow_skill_creator",
+    "category": "Customization",
+    "question": "What is the workflow-skill-creator tool?",
+    "answer": "The `workflow-skill-creator` is a specialized skill that compiles a completed user interaction or multi-step execution flow into a reusable skill. You can trigger it by asking the agent to 'make this a skill' or 'package this workflow' after successfully completing a complex set of operations.",
+    "tags": ["workflow-skill-creator", "package", "save", "automate"]
+  }
+]

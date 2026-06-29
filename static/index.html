@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Antigravity Support AI - A premium NLP-powered chatbot helper for the Antigravity IDE platform. Ask FAQs and view real-time NLP match metrics.">
+    <title>Antigravity Support AI - FAQ Chatbot</title>
+    <!-- Google Fonts Outfit & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-glow"></div>
+                <i class="fa-solid fa-shuttle-space logo-icon"></i>
+                <div class="logo-text">
+                    <h1>Antigravity AI</h1>
+                    <span class="subtext">FAQ Chatbot Console</span>
+                </div>
+            </div>
+            <div class="status-indicator">
+                <span class="status-dot online"></span>
+                <span class="status-label">NLP Server Online</span>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="app-main">
+            <!-- LEFT COLUMN: FAQ CATALOG -->
+            <aside class="sidebar-left glass-panel" id="faq-sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fa-solid fa-book-open"></i> FAQ Directory</h2>
+                    <p class="sidebar-desc">Click any question to ask the AI instantly.</p>
+                </div>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="faq-search" placeholder="Search FAQs by keywords..." autocomplete="off">
+                    <button id="search-clear-btn" class="clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="faq-list" id="faq-list-container">
+                    <div class="loader-spinner">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i> Loading FAQ database...
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CENTER COLUMN: CHAT WORKSPACE -->
+            <section class="chat-workspace glass-panel" id="chat-panel">
+                <div class="chat-header">
+                    <div class="chatbot-info">
+                        <div class="avatar-glow"></div>
+                        <div class="chatbot-avatar">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="chatbot-details">
+                            <h3>Antigravity Support Agent</h3>
+                            <p class="chat-status">Ready to assist you</p>
+                        </div>
+                    </div>
+                    <button class="clear-chat-btn" id="clear-chat-btn" title="Clear Chat History">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+
+                <div class="chat-messages" id="chat-messages-container">
+                    <!-- Dynamic messages appear here -->
+                    <div class="message bot-message message-appear">
+                        <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                        <div class="msg-content">
+                            <p>Welcome! I am the <strong>Antigravity Support AI</strong>. Ask me anything about the Antigravity IDE, customizations, skills, slash commands, or troubleshooting errors.</p>
+                            <p>Here are some popular topics to get started:</p>
+                        </div>
+                    </div>
+                    <!-- Quick Reply Suggestions -->
+                    <div class="suggestions-container" id="initial-suggestions">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <form id="chat-form" class="chat-input-form">
+                        <input type="text" id="chat-input" placeholder="Type your question here (e.g., 'how to write custom rules')..." required autocomplete="off">
+                        <button type="submit" id="chat-send-btn" class="send-btn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: NLP METRICS DASHBOARD -->
+            <aside class="sidebar-right glass-panel" id="nlp-dashboard">
+                <div class="sidebar-header">
+                    <h2><i class="fa-solid fa-gauge-high"></i> NLP Analytics</h2>
+                    <p class="sidebar-desc">Real-time match data & lemmatization details.</p>
+                </div>
+
+                <div class="dashboard-content">
+                    <!-- Default message when no questions asked yet -->
+                    <div id="no-metrics-msg" class="empty-dashboard-msg">
+                        <i class="fa-solid fa-chart-line dashboard-icon"></i>
+                        <p>Ask a question to see real-time NLP match metrics, tokens, and cosine similarity calculations.</p>
+                    </div>
+
+                    <!-- Metrics elements (initially hidden) -->
+                    <div id="metrics-details" style="display: none;">
+                        <div class="metric-card">
+                            <span class="metric-title">Cosine Similarity Score</span>
+                            <div class="similarity-value-container">
+                                <span class="similarity-value" id="metric-score">0.0000</span>
+                                <span class="similarity-pill" id="metric-match-status">No Match</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="metric-progress-bar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <span class="metric-title">Query NLP Lemmatization</span>
+                            <p class="metric-desc">Tokens cleaned of stopwords & punctuation, converted to base lemmas:</p>
+                            <div class="token-tags" id="metric-tokens">
+                                <!-- Tags go here -->
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <span class="metric-title">Top 5 Document Matches</span>
+                            <p class="metric-desc">Highest scoring candidate FAQs in the TF-IDF space:</p>
+                            <ul class="match-ranking-list" id="metric-ranking-list">
+                                <!-- List items go here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <p>&copy; 2026 Antigravity IDE. Powered by SpaCy, scikit-learn, and Flask.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
