@@ -1,72 +1,72 @@
 [
   {
-    "id": "what_is_antigravity",
+    "id": "what_is_chatbot",
     "category": "General",
-    "question": "What is Antigravity IDE and who built it?",
-    "answer": "Antigravity IDE is a powerful agentic AI coding workspace designed by the Google DeepMind team. It is built for advanced agentic coding, allowing developers to pair program with autonomous AI agents that can read/write files, execute terminal commands, run tests, browse the web, and build web applications.",
-    "tags": ["antigravity", "about", "deepmind", "google", "creator"]
+    "question": "What is AI Chatbot and how does it work?",
+    "answer": "AI Chatbot is an interactive, NLP-powered assistant designed to answer user inquiries dynamically. It runs on a Python Flask backend combined with a premium glassmorphic frontend. When a query is submitted, it utilizes SpaCy for lemmatization and scikit-learn's TF-IDF vector space model to match user intent with FAQ answers.",
+    "tags": ["chatbot", "about", "how it works", "introduction", "ai"]
   },
   {
-    "id": "features_supported",
+    "id": "core_features",
     "category": "General",
-    "question": "What are the core features of Antigravity IDE?",
-    "answer": "The core features of Antigravity include autonomous pair programming, advanced task planning and execution, multi-agent orchestrations (subagents), integrated web browsing/testing, automated image generation, background task execution, and customizable rules and skills.",
-    "tags": ["features", "capabilities", "what can it do", "agent"]
+    "question": "What are the core features of the AI Chatbot?",
+    "answer": "Key features of the chatbot include dynamic NLP-based question matching, real-time analytics displaying similarity scores and lemmatized tokens, quick-response suggestion chips, a searchable and category-filtered FAQ directory, and a high-fidelity glassmorphic dark-theme console layout.",
+    "tags": ["features", "capabilities", "functionality", "analytics"]
   },
   {
-    "id": "what_is_planning_mode",
-    "category": "Workflows",
-    "question": "What is Planning Mode in the agent's workflow?",
-    "answer": "Planning Mode is a structured approach where the agent researches a complex task, drafts an 'implementation_plan.md' detailing proposed changes and verification steps, obtains explicit user approval, tracks tasks in 'task.md', and generates a final 'walkthrough.md' upon completion.",
-    "tags": ["planning", "plan", "workflow", "implementation plan", "approval"]
+    "id": "nlp_matching_engine",
+    "category": "NLP & Matching",
+    "question": "How does the NLP Similarity Engine match user questions?",
+    "answer": "The similarity engine uses two main steps:\n1. **SpaCy Lemmatization**: User input is lowercased, and punctuation and stopwords are removed. The remaining words are resolved to their base lemma forms.\n2. **TF-IDF & Cosine Similarity**: The engine transforms the processed query into a TF-IDF vector and calculates the Cosine Similarity score against preprocessed database questions to determine the best match.",
+    "tags": ["nlp", "engine", "similarity", "spacy", "tfidf", "cosine similarity"]
   },
   {
-    "id": "slash_commands",
-    "category": "Commands",
-    "question": "What slash commands are available in the chat UI?",
-    "answer": "The available slash commands are:\n- `/goal`: Run long-running tasks thoroughly (e.g. overnight execution).\n- `/schedule`: Set up recurring cron schedules or one-off timers.\n- `/grill-me`: Start an interactive interview to align on design decisions and resolve ambiguities.\n- `/learn`: Save workspace lessons and patterns for future reference.",
-    "tags": ["slash", "commands", "goal", "schedule", "grill-me", "learn"]
+    "id": "add_custom_faqs",
+    "category": "Setup & Usage",
+    "question": "How do I add or customize FAQ questions in the database?",
+    "answer": "All FAQ questions and answers are stored in `faqs.json`. You can easily add, edit, or remove entries in this JSON file. Each FAQ entry requires a unique `id`, a `category`, a `question`, an `answer`, and a list of `tags` for search indexing. Restart the server after changes to reload the data.",
+    "tags": ["faqs", "customize", "edit", "database", "add questions"]
   },
   {
-    "id": "write_custom_rules",
-    "category": "Customization",
-    "question": "How do I write custom rules for the agent?",
-    "answer": "You can add custom rules by editing or appending to the `AGENTS.md` file. There are two scopes:\n1. **Global Rules**: In the global customizations root (`C:\\Users\\<user>\\.gemini\\config\\AGENTS.md`).\n2. **Workspace-Scoped Rules**: In the workspace customizations root (`.agents/AGENTS.md` relative to the workspace root).",
-    "tags": ["rules", "customization", "agents.md", "guidelines", "override"]
+    "id": "run_locally",
+    "category": "Setup & Usage",
+    "question": "How do I run and test the AI Chatbot locally?",
+    "answer": "To run the chatbot locally:\n1. Install dependencies: `pip install -r requirements.txt`\n2. Download the SpaCy model: `python -m spacy download en_core_web_sm`\n3. Start the Flask server: `python app.py`\n4. Access the web console at `http://127.0.0.1:5000`.",
+    "tags": ["run", "install", "deploy", "setup", "local", "start"]
   },
   {
-    "id": "create_custom_skills",
-    "category": "Customization",
-    "question": "How can I create or structure a custom Skill?",
-    "answer": "Custom skills are directories placed under `skills/<skill_name>/` in a customization root. A skill must contain a `SKILL.md` file (which uses YAML frontmatter with a `name` and `description` to enable trigger matching). You can also include subdirectories like `scripts/`, `examples/`, `resources/`, or `references/` for extra context.",
-    "tags": ["skills", "custom", "skill.md", "yaml", "structure", "frontmatter"]
+    "id": "run_tests",
+    "category": "Setup & Usage",
+    "question": "How do I run the automated verification tests on the NLP engine?",
+    "answer": "The project includes a verification script called `test_engine.py`. Run `python test_engine.py` in your terminal to automatically test the NLP matching engine against a set of predefined user queries, checking both match states and returned IDs.",
+    "tags": ["tests", "testing", "test_engine", "verification"]
   },
   {
-    "id": "resolve_permission_errors",
-    "category": "Troubleshooting",
-    "question": "How do I handle permission denied errors or request file access?",
-    "answer": "If a task encounters a permission error, the agent uses the `ask_permission` tool to request access from the user. You can grant specific actions like `read_file`, `write_file`, or command execution prefix scopes. Alternatively, you can run the commands directly in your terminal if you prefer.",
-    "tags": ["permission", "access", "denied", "error", "read_file", "write_file"]
+    "id": "analytics_dashboard",
+    "category": "General",
+    "question": "What is the purpose of the NLP Analytics dashboard?",
+    "answer": "The NLP Analytics panel on the right sidebar displays details about the chatbot's processing. It shows: the computed Cosine Similarity score (with color-coded match status), the exact lemmatized token tags generated by SpaCy, and the top 5 ranking matches in the database with their respective similarity scores.",
+    "tags": ["dashboard", "analytics", "cosine score", "lemmas", "tokens", "matches"]
   },
   {
-    "id": "background_tasks",
-    "category": "Workflows",
-    "question": "How do background tasks work and how do I manage them?",
-    "answer": "When you run a command asynchronously, it runs in the background. You can manage these tasks using the `manage_task` tool with specific actions: `list` (view all tasks), `status` (check status/logs), `send_input` (provide interactive input), or `kill` (terminate the task). The system notifies the agent when background tasks finish.",
-    "tags": ["background", "tasks", "asynchronous", "manage_task", "status", "kill"]
+    "id": "frontend_styling",
+    "category": "Branding & Styling",
+    "question": "What UI design patterns are used in the chatbot console?",
+    "answer": "The UI utilizes modern glassmorphism (translucent panels using `backdrop-filter: blur`, thin borders, and neon radial glow backdrops). It uses the premium Outfit font for headings and structural copy, JetBrains Mono for technical codes, smooth micro-animations for message entry, and reactive suggestion chips.",
+    "tags": ["design", "css", "styling", "glassmorphism", "aesthetics", "typography"]
   },
   {
-    "id": "web_development_aesthetics",
-    "category": "Web Dev",
-    "question": "What design guidelines does Antigravity follow for web applications?",
-    "answer": "Antigravity prioritizes high-end visual aesthetics: dark-themed UI components, glassmorphism (translucent panels, blur backdrops), vibrant custom color schemes, smooth micro-animations, standard typography (e.g. Outfit, Google Fonts), and fully interactive components rather than placeholders.",
-    "tags": ["design", "aesthetics", "web", "css", "styling", "glassmorphism", "premium"]
+    "id": "spacy_lemmatization",
+    "category": "NLP & Matching",
+    "question": "Why does the chatbot use SpaCy for lemmatization?",
+    "answer": "Using SpaCy's `en_core_web_sm` lemmatizer improves match accuracy by translating diverse grammatical forms (e.g. 'running', 'ran', 'runs') to their dictionary root form ('run'). It also automatically discards noisy elements like articles, punctuation, and common stopwords.",
+    "tags": ["spacy", "lemmatizer", "lemmas", "stopwords", "accuracy"]
   },
   {
-    "id": "what_is_workflow_skill_creator",
-    "category": "Customization",
-    "question": "What is the workflow-skill-creator tool?",
-    "answer": "The `workflow-skill-creator` is a specialized skill that compiles a completed user interaction or multi-step execution flow into a reusable skill. You can trigger it by asking the agent to 'make this a skill' or 'package this workflow' after successfully completing a complex set of operations.",
-    "tags": ["workflow-skill-creator", "package", "save", "automate"]
+    "id": "custom_thresholds",
+    "category": "NLP & Matching",
+    "question": "Can I configure the minimum similarity threshold for matching?",
+    "answer": "Yes, you can configure the threshold parameter in the `match_question()` function within `nlp_engine.py` (which defaults to `0.20`). If a query's match score falls below this threshold, the chatbot provides a default fallback response recommending alternate related questions.",
+    "tags": ["threshold", "score", "limit", "nlp_engine", "adjust"]
   }
 ]

@@ -6,12 +6,12 @@ def test_engine():
     
     # Test cases: (query, expected_matched, expected_id_or_substring)
     test_cases = [
-        ("What is Antigravity IDE?", True, "what_is_antigravity"),
-        ("who made antigravity ide?", True, "what_is_antigravity"),
-        ("how to customize AGENTS.md rules?", True, "write_custom_rules"),
-        ("tell me about slash commands like goal", True, "slash_commands"),
-        ("permission denied write file error", True, "resolve_permission_errors"),
-        ("how to create custom skill with skill.md?", True, "create_custom_skills"),
+        ("What is AI Chatbot?", True, "what_is_chatbot"),
+        ("how does the chatbot work?", True, "what_is_chatbot"),
+        ("how does nlp similarity engine work?", True, "nlp_matching_engine"),
+        ("how to run and test locally?", True, "run_locally"),
+        ("how to run verification tests?", True, "run_tests"),
+        ("tell me about the dashboard analytics?", True, "analytics_dashboard"),
         ("hello", True, "greeting"),
         ("what is the weather like in New York today?", False, None)
     ]

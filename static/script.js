@@ -100,9 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show initial quick action chips in welcome message
     function renderInitialSuggestions() {
         const defaultSuggestions = [
-            "What is Antigravity IDE?",
-            "What slash commands are available?",
-            "How do I add rules?"
+            "What is AI Chatbot?",
+            "How does the NLP engine work?",
+            "How do I run tests?"
         ];
         
         initialSuggestions.innerHTML = defaultSuggestions.map(q => `
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="message bot-message message-appear">
                 <div class="msg-avatar"><i class="fa-robot fa-solid"></i></div>
                 <div class="msg-content">
-                    <p>Chat history cleared. I'm ready for new questions about Antigravity IDE!</p>
+                    <p>Chat history cleared. I'm ready for new questions about AI Chatbot!</p>
                 </div>
             </div>
         `;

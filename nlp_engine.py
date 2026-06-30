@@ -75,12 +75,12 @@ class FAQEngine:
                 "id": "greeting",
                 "category": "General",
                 "question": "Greeting",
-                "answer": "Hello! I am the Antigravity Support AI chatbot. Ask me anything about Antigravity IDE, its commands, rules, or customization options!",
+                "answer": "Hello! I am the AI Chatbot. Ask me anything about this chatbot, its NLP engine, setup instructions, or analytics dashboard!",
                 "query_lemmas": ["greeting"],
                 "suggestions": [
-                    "What is Antigravity IDE and who built it?",
-                    "What slash commands are available in the chat UI?",
-                    "How do I write custom rules for the agent?"
+                    "What is AI Chatbot and how does it work?",
+                    "How does the NLP Similarity Engine match user questions?",
+                    "How do I run and test the AI Chatbot locally?"
                 ]
             }
 
@@ -165,9 +165,9 @@ if __name__ == "__main__":
     print("Preprocessed FAQ count:", len(engine.preprocessed_questions))
     
     test_queries = [
-        "What is Antigravity IDE?",
-        "How do I add rules for agents?",
-        "tell me about slash commands",
+        "What is AI Chatbot?",
+        "How do I run tests?",
+        "tell me about the NLP engine",
         "hello",
         "unknown gibberish query here"
     ]
